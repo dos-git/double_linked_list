@@ -41,7 +41,7 @@ void Add_Element_at_Front(struct Element **hd, struct Element **tl,int new_numbe
 	e->next = (*hd);
 	*hd = e;
 
-	if(e->next) (*hd)->next->prev = e;  /* case if list is not empty    */
+	if(e->next) e->next->prev = e;  /* case if list is not empty    */
 	else        *tl = e;                /* case if list is empty        */
 }
 
@@ -57,6 +57,7 @@ void Add_Element_at_End(struct Element **hd, struct Element **tl, int new_number
 	e->prev = (*tl);
 	*tl = e;
 
+//	if(e->prev) e->prev->next = e;  /* case if list is not empty    */
 	if(e->prev) e->prev->next = e;  /* case if list is not empty    */
 	else        *hd = e;            /* case if list is empty        */
 }
